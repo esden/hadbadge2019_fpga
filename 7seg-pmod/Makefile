@@ -25,6 +25,6 @@ prog: ${PROJ}.bit
 	dfu-util$(EXE) -d 1d50:614a,1d50:614b -a 0 -R -D $<
 
 clean:
-	rm -rf *.json *.config
+	rm -rf *.bit *.json *.config
 	
 .PRECIOUS: ${PROJ}.json ${PROJ}_out.config
