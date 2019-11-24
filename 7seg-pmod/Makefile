@@ -15,8 +15,8 @@ all: ${PROJ}.bit
 %.json: %.v
 	yosys$(EXE) -p "synth_ecp5 -json $@" $<
 
-%_out.config: %.json had19_proto3.lpf
-	nextpnr-ecp5$(EXE) --json $< --textcfg $@ --45k --package CABGA381 --speed 8 --lpf had19_proto3.lpf
+%_out.config: %.json had19_prod.lpf
+	nextpnr-ecp5$(EXE) --json $< --textcfg $@ --45k --package CABGA381 --speed 8 --lpf had19_prod.lpf
 
 %.bit: %_out.config
 	ecppack$(EXE) $< $@
